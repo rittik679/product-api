@@ -12,6 +12,7 @@ const ProductTable = ({ products }) => {
             {/* <th className="px-4  py-2 border w-1/4">Description</th> Set width here */}
             <th className="px-4 py-2 border">Price</th>
             <th className="px-4 py-2 border">Category</th>
+            <th className="px-4 py-2 border">Tags</th>
             <th className="px-4 py-2 border">Rating</th>
             <th className="px-4 py-2 border">Stock</th>
             <th className="px-4 py-2 border">Brand</th>
@@ -36,6 +37,9 @@ const ProductTable = ({ products }) => {
               {/* <td className="px-4 py-2 border w-1/4">{product.description}</td> Set width here */}
               <td className="px-4 py-2 border">${product.price.toFixed(2)}</td>
               <td className="px-4 py-2 border">{product.category}</td>
+              <td className="px-4 py-2 border">
+                {product.tags.join(', ')} {/* Displaying tags as a comma-separated list */}
+              </td>
               <td className="px-4 py-2 border">{product.rating}</td>
               <td className="px-4 py-2 border">{product.stock}</td>
               <td className="px-4 py-2 border">{product.brand}</td>
