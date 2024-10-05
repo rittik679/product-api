@@ -8,12 +8,14 @@ const ProductTable = ({ products }) => {
           <tr>
             <th className="px-4 py-2 border">ID</th>
             <th className="px-4 py-2 border">Image</th>
+            {/* <th className="px-4 py-2 border">Thumbnail</th> */}
             <th className="px-4 py-2 border">Title</th>
             {/* <th className="px-4  py-2 border w-1/4">Description</th> Set width here */}
             <th className="px-4 py-2 border">Price</th>
             <th className="px-4 py-2 border">Category</th>
             <th className="px-4 py-2 border">Tags</th>
             <th className="px-4 py-2 border">Rating</th>
+            {/* <th className="px-4 py-2 border">Reviews</th> */}
             <th className="px-4 py-2 border">Stock</th>
             <th className="px-4 py-2 border">Brand</th>
             <th className="px-4 py-2 border">SKU</th>
@@ -24,6 +26,8 @@ const ProductTable = ({ products }) => {
             <th className="px-4 py-2 border">Availability</th>
             <th className="px-4 py-2 border">Return Policy</th>
             <th className="px-4 py-2 border">Minimum Order</th>
+            <th className="px-4 py-2 border">Meta Info</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -33,6 +37,9 @@ const ProductTable = ({ products }) => {
               <td className="px-4 py-2 border">
                 <img src={product.images[0]} alt={product.title} className="w-16 h-16 object-cover" />
               </td>
+              {/* <td className="px-4 py-2 border">
+                <img src={product.thumbnail} alt={product.title} className="w-16 h-16 object-cover" />
+              </td> */}
               <td className="px-4 py-2 border">{product.title}</td>
               {/* <td className="px-4 py-2 border w-1/4">{product.description}</td> Set width here */}
               <td className="px-4 py-2 border">${product.price.toFixed(2)}</td>
@@ -41,6 +48,13 @@ const ProductTable = ({ products }) => {
                 {product.tags.join(', ')} {/* Displaying tags as a comma-separated list */}
               </td>
               <td className="px-4 py-2 border">{product.rating}</td>
+              {/* <td className="px-4 py-2 border">
+                {product.reviews.map((review, index) => (
+                  <div key={index}>
+                    <strong>{review.reviewerName}</strong>: {review.comment} (Rating: {review.rating})
+                  </div>
+                ))}
+              </td> */}
               <td className="px-4 py-2 border">{product.stock}</td>
               <td className="px-4 py-2 border">{product.brand}</td>
               <td className="px-4 py-2 border">{product.sku}</td>
@@ -53,6 +67,11 @@ const ProductTable = ({ products }) => {
               <td className="px-4 py-2 border">{product.availabilityStatus}</td>
               <td className="px-4 py-2 border">{product.returnPolicy}</td>
               <td className="px-4 py-2 border">{product.minimumOrderQuantity}</td>
+              <td className="px-4 py-2 border">
+                <div>Barcode: {product.meta.barcode}</div>
+                <div>Created At: {new Date(product.meta.createdAt).toLocaleDateString()}</div>
+                <div>Updated At: {new Date(product.meta.updatedAt).toLocaleDateString()}</div>
+              </td>
             </tr>
           ))}
         </tbody>
